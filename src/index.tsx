@@ -3,16 +3,14 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div<{ background: string }>`
-  padding: 40px;
   height: 100vh;
   background: ${props => props.background || "#f6f6f6"};
   transition: 0.2s ease-in-out;
   text-align: center;
   ol {
     width: 80%;
-    padding: 0px;
+    padding: 40px;
     height: 50vh;
-    bottom: 0px;
     overflow: scroll;
     list-style: none;
     display: inline-block;
