@@ -4,17 +4,24 @@ import styled from "styled-components";
 
 const Wrapper = styled.div<{ background: string }>`
   height: 100vh;
-  background: ${props => props.background || "#f6f6f6"};
-  transition: 0.2s ease-in-out;
-  text-align: center;
+  background: #f6f6f6;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    margin: 0px;
+    width: 40vw;
+    line-height: 100vh;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    background: ${props => props.background};
+  }
+
   ol {
-    width: 80%;
+    width: 60vw;
     padding: 40px;
-    height: 50vh;
     overflow: scroll;
     list-style: none;
-    display: inline-block;
-    position: sticky;
     li {
       display: inline-block;
       margin-bottom: 40px;
@@ -22,16 +29,19 @@ const Wrapper = styled.div<{ background: string }>`
       padding: 100px;
       background: white;
       border-radius: 20px;
+      transition: 0.3s ease-in;
+      :hover {
+        transform: scale(1.05, 1.05);
+      }
       span {
         display: inline-block;
         width: 250px;
         height: 250px;
         border-radius: 125px;
       }
-      transition: 0.3s ease-in;
     }
-    li:hover {
-      transform: scale(1.05, 1.05);
+    ::-webkit-scrollbar {
+      display: none; /* hide scroll bar Safari and Chrome */
     }
   }
 `;
@@ -39,7 +49,7 @@ const Wrapper = styled.div<{ background: string }>`
 const randomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
-const colors = [...Array(100)].map(
+const colors = [...Array(99)].map(
   _ => `linear-gradient(${randomColor()},${randomColor()})`
 );
 
@@ -48,6 +58,8 @@ const App = () => {
 
   return (
     <Wrapper background={background}>
+      <h1>{background}</h1>
+
       <ol>
         {colors.map(background => {
           return (
