@@ -47,7 +47,7 @@ const Wrapper = styled.div<{ background: string }>`
 `;
 
 const randomColor = () =>
-  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  `#${("000000" + Math.floor(Math.random() * 16777215).toString(16)).substr(-6)}`;
 
 const colors = [...Array(99)].map(
   _ => `linear-gradient(${randomColor()},${randomColor()})`
